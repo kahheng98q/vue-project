@@ -18,7 +18,7 @@
 			</router-link>
 			<router-link to="/about" class="button">
 				<span class="material-icons">description</span>
-				<span class="text">About</span>
+				<span class="text">About11</span>
 			</router-link>
 			<router-link to="/team" class="button">
 				<span class="material-icons">group</span>
