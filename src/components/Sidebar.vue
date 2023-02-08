@@ -16,9 +16,9 @@
 				<span class="material-icons">home</span>
 				<span class="text">Home</span>
 			</router-link>
-			<router-link to="/about" class="button">
+			<router-link to="/RegisterTrip" class="button">
 				<span class="material-icons">description</span>
-				<span class="text">About11</span>
+				<span class="text">RegisterTrip</span>
 			</router-link>
 			<router-link to="/team" class="button">
 				<span class="material-icons">group</span>
