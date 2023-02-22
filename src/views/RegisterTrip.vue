@@ -4,60 +4,46 @@
 
     <div class="container">
       <div id="dropdownlist" class="row col-6">
-        <div></div>
+        
+           <div>
+          <ddl @click-ddl="clickedPickUpDdl" :ddlInput="pickUpDes" :titleDdl="pickUpDll"></ddl>
 
-        <span class="m-1">pick up</span>
-        <select v-model="selected" id="selPickUp" placeholder="where to pick up" AutoPostBack="false">
-          <option v-for="pu in pickUpDes" :key="pu.id" v-bind:value="pu.name">
-            {{ pu.name }}
-          </option>
-        </select>
+        </div>
+           <div>
+          <ddl @click-ddl="clickedDestDdl" :ddlInput="dests" :titleDdl="destDll"></ddl>
 
-        <!--button @click="call">getpu</button-->
-        <hr>
-        <span class="m-1">where to</span>
-        <select v-model="selectedw" id="selPickUp">
-          <option v-for="wt in dests" :key="wt.id" v-bind:value="wt.name">
-            {{ wt.name }}
-          </option>
-        </select>
-
-
-
+        </div>
+         
       </div>
+         <div class="row col-6">
+           <div>
+          <ddl @click-ddl="clickedShowSeatsDetails" :ddlInput="seatsP" :titleDdl="seatDdl"></ddl>
+
+        </div>
+          </div>
 
       <div class="row col-6">
+          
         <span>date</span>
         <Datepicker @select-date-from-datepicker="selectDateDP"></Datepicker>
 
         <span>time</span>
         <VueTimepicker @click_timepicker_comp="selectTimeP"></VueTimepicker>
 
-        <!--span class="m-1">avaibale seat</span>
-        <select v-model="selectedS" id="selPickUp" @click="showSeatDetails(seats)">
-          <option v-for="wt in seats" :key="wt.id" v-bind:value="wt.name">
-            {{ wt.name }}
-          </option>
-        </select-->
-        <div>
-          <ddl @click-show-Seat-Details="clickedShowSeatsDetails">
-
-          </ddl>
-
-        </div>
+        
       </div>
     </div>
+
 
     <div>
 
       <div>male/female
         <toggleBtn v-model="values" class="toggle-red" on-label="1" off-label="2" @click="togglClk" />
-        <!--toggleBtn v-model="example2.value" v-bind="example2" /-->
       </div>
     </div>
     <div>
 
-      <!--b-form-datepicker v-model="valueD" :date-disabled-fn="dateDisabled" locale="en"></b-form-datepicker-->
+      
     </div>
     <div class="row">
       Selected pickup:{{ selected }}
@@ -79,12 +65,7 @@
     </div>
 
     <input type="submit" value="Submit">
-    <!--div>
-      <b-button class="btn btn-outline-success">Button</b-button>
-      <b-button class="btn btn-outline-success" variant="danger">Button</b-button>
-      <b-button class="btn btn-outline-success" variant="success">Button</b-button>
-      <b-button class="btn btn-outline-success" variant="outline-primary">Button</b-button>
-    </div-->
+    
   </form>
 </template>
 
@@ -120,13 +101,13 @@ export default {
         { name: 'pv16', id: 2 },
         { name: 'the nest', id: 3 },
       ],
-      seats: [
-        { name: '1', id: 1 },
-        { name: '2', id: 2 },
-        { name: '3', id: 3 },
-        { name: '4', id: 4 },
-        { name: '5', id: 5 },
-        { name: '6', id: 6 },
+      seatsP: [
+        { name: '1.1', id: 1 },
+        { name: '2.2', id: 2 },
+        { name: '3.3', id: 3 },
+        { name: '4.4', id: 4 },
+        { name: '5.5', id: 5 },
+        { name: '6.6', id: 6 },
       ],
       selected: '',
       selectedw: '',
@@ -152,26 +133,17 @@ export default {
       },
       selectedDatefDP: '',
       selectedTime: '',
-      valueD: ''
+      valueD: '',
+    seatDdl:'Number of seat',
+    pickUpDll:'pick up',
+    destDll:'where to'
     }
   },
   formSubmitted: false,
 
   methods: {
-    //call: function () {
-    //  console.log("hiihi")
-    // return 'hihihi'
-    //},
     endCompile: function () {
       console.log('calling from mounted')
-    },
-    changeButtonState: function () {
-      if (this.buttonState === 4) {
-        this.buttonState = 1;
-      }
-      else {
-        this.buttonState++;
-      }
     },
     togglClk: function () {
       this.values = !this.values
@@ -194,6 +166,16 @@ export default {
       console.log('parent get selected seat:')
       console.log(seat)
       this.selectedS = seat
+    },
+    clickedPickUpDdl: function (ddlSelected){
+    console.log('pickup clicked')
+    console.log(ddlSelected)
+    this.selected = ddlSelected
+    },
+    clickedDestDdl: function (ddlSelected){
+     console.log('dest clicked')
+    console.log(ddlSelected)
+    this.selectedw = ddlSelected
     },
     selectDateDP: function (v) {
       this.selectedDatefDP = v
