@@ -55,7 +55,7 @@ export const moduleA = {
       );
     },
     async [actionName.FETCH_TASKS](state) {
-      const res = await fetch("api/tasks");
+      const res = await fetch("api/todos");
       const data = await res.json();
       // console.log("teseqwet");
       state.commit(mutationName.SET_TASKS, data);
