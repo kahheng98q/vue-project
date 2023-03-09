@@ -9,7 +9,7 @@
 </template>
   
 <script>
-import Button from './Button'
+import Button from './Inputs/Button'
 import { mutationName } from "../constant/constant";
 import { mapState, mapMutations,mapGetters } from 'vuex';
 

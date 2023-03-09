@@ -1,4 +1,4 @@
-<template>
+<!-- <template>
   <form @submit="checkForm">
     <h3>Register Trip</h3>
 
@@ -72,10 +72,10 @@
 
 <script>
 
-import toggleBtn from '../components/ToggleBtn.vue'
-import ddl from '../components/dropdownlist.vue'
-import Datepicker from '../components/Datepicker.vue'
-import VueTimepicker from '../components/Timepicker.vue'
+import toggleBtn from '../components/Inputs/ToggleBtn.vue'
+import ddl from '../components/Inputs/dropdownlist.vue'
+import Datepicker from '../components/Inputs/Datepicker.vue'
+import VueTimepicker from '../components/Inputs/Timepicker.vue'
 
 
 
@@ -242,4 +242,4 @@ export default {
 
 <style src="@vueform/toggle/themes/default.css">
 
-</style>
+</style> -->

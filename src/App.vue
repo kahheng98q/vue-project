@@ -1,7 +1,6 @@
 <template>
 <div class="app">
 
-
     <Sidebar />
     <main >
     <Header @toggle-add-task="toggleAddTask" title="Task Tracker" />
@@ -20,7 +19,7 @@
 import Header from './components/Header'
 import Footer from './components/Footer'
 import Sidebar from './components/Sidebar'
-import Tasks from './components/Tasks'
+import Tasks from './components/Task/Tasks'
 
 export default {
   name: 'App',

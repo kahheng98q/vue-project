@@ -23,7 +23,8 @@
   </template>
   
   <script>
-
+import {actionName} from '../../constant/constant'
+import { mapActions } from "vuex";
 
   export default {
     name: 'AddTask',
@@ -32,28 +33,34 @@
         text: '',
         day: '',
         reminder: false,
+        userID:"63f99c1ad0f5ed39be372bb5"
       }
     },
     methods: {
-      onSubmit(e) {
+      
+    ...mapActions(
+      [actionName.ADD_TASK,actionName.DELETE_TASK]
+    ),
+     async onSubmit(e) {
         e.preventDefault()
         if (!this.text) {
           alert('Please add a task')
           return
         }
         const newTask = {
-          // id: Math.floor(Math.random() * 100000),
-          text: this.text,
-          day: this.day,
-          reminder: this.reminder,
-        }
-        this.$emit('add-task', newTask)
-        this.text = ''
-        this.day = ''
-        this.reminder = false
-      },
 
-    },
+          taskName: this.text,
+          toDate: this.day,
+          isReminder: this.reminder,
+        }
+        await this.addTask(  {id:this.userID,task:newTask} );
+        // this.$emit('add-task', newTask)
+        // this.text = ''
+        // this.day = ''
+        // this.reminder = false
+      },
+    }
+    ,
   }
   </script>
   

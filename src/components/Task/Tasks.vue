@@ -11,7 +11,7 @@
   
   <script>
   import { mapGetters } from 'vuex';
-  import { getterName } from "../constant/constant";
+  import { getterName } from "../../constant/constant";
   import Task from './Task'
   
   export default {

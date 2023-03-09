@@ -15,14 +15,13 @@
 
 <script>
 // import Tasks from '../components/Tasks'
-import AddTask from '../components/AddTask'
+import AddTask from '../components/Task/AddTask'
 import {actionName} from '../constant/constant'
 import { mapActions ,mapGetters} from "vuex";
 
 export default {
   name: 'Home',
   props: {
-    // showAddTask: Boolean,
   },
   components: {
     // Tasks,
@@ -30,7 +29,7 @@ export default {
   },
   data() {
     return {
-      // tasks: [],
+       userID:"63faf0dcacae472b009eca49"
     }
   }, 
   methods: {
@@ -42,11 +41,8 @@ export default {
     ...mapGetters(['allTasks','count','showAddTask'])
   },
   async created(){
-   await this.fetchTasks();
+  //  await this.fetchTasks(this.userID);
   }
-  // async created() {
-  //   this.tasks = await this.fetchTasks()
 
-  // },
 }
 </script>
